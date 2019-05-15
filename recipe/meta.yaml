@@ -1,5 +1,5 @@
 {% set name = "Flask-Dance" %}
-{% set version = "2.0.0" %}
+{% set version = "2.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 311101c99c9426dabbb12a90abd698d4916dcae953439af26f5ea91639acc3f5
+  sha256: cc7808c7dc2cfdc998248174d9beef96be544f1932d9b805ee80ff2c97f0815d
 
 build:
   number: 0
