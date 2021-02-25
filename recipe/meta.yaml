@@ -1,5 +1,5 @@
 {% set name = "Flask-Dance" %}
-{% set version = "2.2.0" %}
+{% set version = "3.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 83d6f8d684150ac8fe7d4f2ad8d71170c3233831a09601eb0e5b40d0c28e337d
+  sha256: a05271b5d91022c4508b5eebade1e57dc25f02eb4f656b367177b6b8e1e3cdb7
 
 build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install --no-deps . -vv"
+  script: {{ PYTHON }} -m pip install --no-deps . -vv
 
 requirements:
   host:
@@ -39,7 +39,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'Doing the OAuth dance with style using Flask, requests, and oauthlib.'
+  summary: Doing the OAuth dance with style using Flask, requests, and oauthlib.
 
   doc_url: http://flask-dance.readthedocs.io/
   dev_url: https://github.com/singingwolfboy/flask-dance
