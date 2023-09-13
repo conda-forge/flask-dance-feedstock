@@ -1,5 +1,7 @@
 {% set name = "Flask-Dance" %}
-{% set version = "2.2.0" %}
+{% set version = "7.0.0" %}
+{% set sha256 = "a37dec5c3a21f13966178285d5c10691cd72203dcef8a01db802fef6287e716d" %}
+{% set build_number = "0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,25 +9,26 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 83d6f8d684150ac8fe7d4f2ad8d71170c3233831a09601eb0e5b40d0c28e337d
+  sha256: {{ sha256 }} 
 
 build:
-  number: 0
+  number: {{ build_number }}
   noarch: python
   script: "{{ PYTHON }} -m pip install --no-deps . -vv"
 
 requirements:
   host:
-    - python >=3
+    - python >=3.7
     - pip
+    - flit-core >=3.2, <4
   run:
-    - python >=3
+    - python >=3.7
     - requests >=2.0
-    - oauthlib
+    - oauthlib >=3.2
     - requests-oauthlib >=1.0.0
-    - Flask >=0.7
+    - Flask >=2.0.3
     - urlobject
-    - six
+    - Werkzeug
 
 test:
   imports:
