@@ -1,14 +1,14 @@
 {% set name = "Flask-Dance" %}
 {% set version = "7.0.0" %}
 {% set sha256 = "a37dec5c3a21f13966178285d5c10691cd72203dcef8a01db802fef6287e716d" %}
-{% set build_number = "0" %}
+{% set build_number = 1 %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }} 
 
 build:
@@ -18,11 +18,11 @@ build:
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - pip
     - flit-core >=3.2, <4
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - requests >=2.0
     - oauthlib >=3.2
     - requests-oauthlib >=1.0.0
@@ -31,6 +31,8 @@ requirements:
     - Werkzeug
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - flask_dance
     - flask_dance.consumer
